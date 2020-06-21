@@ -11,17 +11,24 @@ class App extends React.Component {
   };
 
   handleFromDateChange = e => {
-    console.log(e);
+    
     this.setState({
-      fromDate: e
+      fromDate: this.parseDate(e)
     });
   };
   handleToDateChange = e => {
-    console.log(e);
+    console.log(this.parseDate(e));
     this.setState({
-      toDate: e
+      toDate: this.parseDate(e)
     });
   };
+
+  parseDate = (date) => {
+    var s = String(date).replace(/-/ig, '/');
+    var result= String(new Date(s).valueOf());
+    console.log("parsed",result);
+    return result;
+  }
   handlePriceChange = e => {
     const filteredList = this.state.hotelsList.filter(element => element.price===e.length);
     console.log(e);
@@ -63,10 +70,13 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("dates",this.state.fromDate,this.state.toDate);
     const listToRender = this.state.hotelsList.filter(element => (this.state.price==="" || element.price===this.state.price.length) &&
     (this.state.country==="" || element.country===this.state.country) &&
-    (this.state.minRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)));
-    console.log("to render",listToRender);
+    (this.state.minRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)) &&
+    (this.state.fromDate === "" || element.availabilityFrom < this.state.fromDate) &&
+    (this.state.toDate ==="" || element.availabilityTo > this.state.toDate));
+    //console.log("to render",listToRender);
     console.log(this.state.hotelsList);
     console.log(this.state.price);
     
@@ -80,12 +90,8 @@ class App extends React.Component {
             handleCountry={this.handleLocationChange}
             handleSize={this.handleSizeChange}/>
 
-          {listToRender.map(item => (
-           <HotelCard hotel={item}/> 
-          ))}
+          <Main items={listToRender}/>
         </div>
-        
-      
     )
   }
 }
