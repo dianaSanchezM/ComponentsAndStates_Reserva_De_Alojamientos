@@ -15,7 +15,7 @@ class ListFilter extends React.Component {
         const {title, onChangeSelected, options} = this.props;
       
       return (
-          <div>
+          <div className="filter">
         <label>{title}</label>
         <select onChange={this.handleChange} value={this.state.selected}>
             {options.map(item => (

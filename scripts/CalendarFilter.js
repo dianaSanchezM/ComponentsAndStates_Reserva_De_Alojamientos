@@ -15,7 +15,7 @@ class CalendarFilter extends React.Component {
   render() {
     const {title, onChangeSelected} = this.props;
     return (
-      <div>
+      <div className="filter">
         <label>{title}</label>
         <input type="date" id="myDate" onChange={this.handleChange} value={this.state.selected}></input>
       </div>

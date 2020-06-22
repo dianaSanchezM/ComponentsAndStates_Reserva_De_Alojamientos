@@ -79,9 +79,9 @@ class App extends React.Component {
     //console.log("to render",listToRender);
     console.log(this.state.hotelsList);
     console.log(this.state.price);
-    
+    console.log("list",listToRender.length);
     return (
-        <div>
+        <div className="App">
           <Header since={this.state.fromDate} to={this.state.toDate}/>
           <FilterBar 
             handleFromDate={this.handleFromDateChange} 
@@ -90,7 +90,7 @@ class App extends React.Component {
             handleCountry={this.handleLocationChange}
             handleSize={this.handleSizeChange}/>
 
-          <Main items={listToRender}/>
+          {(listToRender.length!==0)?<Main items={listToRender}/>: <p className="msg">No hay hoteles disponibles con los filtros seleccionados</p>}
         </div>
     )
   }

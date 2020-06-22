@@ -1,6 +1,132 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Rubik", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  
   }
+
+.App {
+  font-family: sans-serif;
+}
+
+.header {
+  padding: 60px;
+  background: #5FB0C7;
+  color: white;
+  font-size: 30px;
+}
+
+.filterBar{
+ list-style-type: none;
+  display: flex;
+  justify-content: center;
+  background-color: #A6A019;
+  height: 70px;
+  padding: 10px;
+}
+
+.filter{
+  padding: 10px;
+  list-style-type: none;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.2s all;
+  
+}
+
+.main{
+  display: grid;
+  background-color:#C7F9ED;
+  grid-template-columns: 25% 25% 25%;
+  padding: 3rem;
+  grid-gap: 20px;
+  justify-content: center;
+}
+
+img{
+  width: 100%;
+}
+
+.card{
+  display: grid;
+  background-color: #fff;
+  border-radius: .4rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.2s;  
+  grid-template-rows: autp auto auto 50px;
+}
+
+.dates{
+  display: flex;
+  font-size: 20px;
+}
+
+.date{
+  padding-right: 10px;
+}
+
+.info{
+  padding: 7%;
+  padding-top: 0%;
+  font-size: 16px;
+}
+
+h3{
+  padding: 7%;
+}
+
+.card:hover {
+  transform: translateY(-.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
+  
+}
+
+.msg{
+  display: flex;
+  align-content: center;
+  font-size: 50px;
+  font-family: Impact, Charcoal, sans-serif;
+  color: #58C7A7;
+  text-align: center;
+  background-color: #B1FAE5;
+}
+
+button {
+  width: 100%;
+  background-color: #56DBD0;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  align-items: flex-end;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background-color: #388F88;
+}
+
+select{
+    color:ivory;
+    font-size: 15px;
+    background-color: #A8A668;
+    padding: 5px;
+    border: 5px;
+    margin: 5px;
+}
+
+input{
+  color:ivory;
+    font-size: 15px;
+    background-color: #A8A668;
+    padding: 5px;
+    border: 5px;
+    margin: 5px;
+}

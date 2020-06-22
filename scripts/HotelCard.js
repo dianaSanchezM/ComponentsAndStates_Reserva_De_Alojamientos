@@ -6,17 +6,17 @@ class HotelCard extends React.Component {
       //console.log("hello",new Date(parseInt(hotel.availabilityFrom)));
       //const to = new Date(String(hotel.availabilityFrom));
       return (
-        <div>
-        <label><h1>
-          Hotel
-        </h1>
-      </label><p>{hotel.name}</p>
-        <label>Price</label><p>{hotel.price}</p>
-        <label>Rooms</label><p>{hotel.rooms}</p>
-        <label>Country</label><p>{hotel.country}</p>
-        <label>From date</label><p>{String(from)}</p>
-        <label>to date</label><p>{String(to)}</p>
-      </div>
+        <div className="card">
+          <img src={hotel.photo}></img>
+          <h3>{hotel.name}</h3>
+              <p className="info">{hotel.description}</p>
+              <p className="info">{hotel.city}, {hotel.country}</p>
+              <p className="info">{hotel.rooms} Habitaciones</p> 
+              <p className="info">{hotel.price}</p>
+              
+            <button type="button">Reservar</button>
+         
+        </div>
       )
     }
   }

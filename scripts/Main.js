@@ -4,7 +4,7 @@ class Main extends React.Component {
       const {items} = this.props
       
       return (
-        <div>
+        <div className="main">
             {items.map(item => (
            <HotelCard hotel={item}/> 
           ))}

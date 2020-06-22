@@ -9,7 +9,7 @@ class FilterBar extends React.Component {
     render() {
         const {handleFromDate, handleToDate, handlePrice, handleSize, handleCountry}= this.props;
       return (
-        <div>
+        <div className="filterBar">
             <CalendarFilter title="Since" onChangeSelected={handleFromDate}/>
             <CalendarFilter title="to" onChangeSelected={handleToDate}/>
             <ListFilter title="Country" onChangeSelected={handleCountry} options={this.state.countryList}/>
