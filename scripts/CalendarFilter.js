@@ -8,7 +8,6 @@ class CalendarFilter extends React.Component {
   parseDate = (date) => {
     var s = String(date).replace(/-/ig, '/');
     var result= String(new Date(s).valueOf());
-    console.log("parsed",result);
     return result;
   }
 

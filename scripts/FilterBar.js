@@ -12,7 +12,6 @@ class FilterBar extends React.Component {
     }
 
     handleSizeChange(stateName, e){
-      console.log("event",e);
     let minSize = 0;
     let maxSize = 0;
     if (e==="Grandes"){
@@ -28,7 +27,6 @@ class FilterBar extends React.Component {
       minSize = -1;
       maxSize = -1;
     }
-    console.log("size", minSize, maxSize);
     this.props.handleStateChange("minRooms",minSize);
     this.props.handleStateChange("maxRooms",maxSize);
     this.props.handleStateChange("size",e);
