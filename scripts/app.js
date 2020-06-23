@@ -1,79 +1,33 @@
 class App extends React.Component {
-  state = {
-    fromDate: "",
+  
+  constructor(props) {
+    super(props);
+    this.state = {fromDate: "",
     toDate: "",
     country: "",
     price: "",
-    size: 0,
+    size: "",
     minRooms: -1,
     maxRooms: -1,
     hotelsList:hotelsData
-  };
-
-  handleFromDateChange = e => {
-    
-    this.setState({
-      fromDate: this.parseDate(e)
-    });
-  };
-  handleToDateChange = e => {
-    console.log(this.parseDate(e));
-    this.setState({
-      toDate: this.parseDate(e)
-    });
-  };
-
-  parseDate = (date) => {
-    var s = String(date).replace(/-/ig, '/');
-    var result= String(new Date(s).valueOf());
-    console.log("parsed",result);
-    return result;
+    };
+    this.handleStateChange = this.handleStateChange.bind(this);
   }
-  handlePriceChange = e => {
-    const filteredList = this.state.hotelsList.filter(element => element.price===e.length);
-    console.log(e);
+
+  handleStateChange(stateName, event) {
+    console.log("handleStateChange",event, stateName);
     this.setState({
-      price: e
+      [stateName]: event
     }, ()=>{
-      console.log(this.state.price)
+      console.log(this.state.country,this.state.size,this.state.price,this.state.fromDate,this.state.toDate,this.state.minRooms, this.state.maxRooms)
     });
-  };
-  handleSizeChange = e => {
-    console.log(e);
-    let minSize = 0;
-    let maxSize = 0;
-    if (e==="Big"){
-      minSize= 20;
-      maxSize = 31;
-    }else if (e==="Small"){
-      console.log("buu");
-      maxSize = 11;
-    }else if (e==="Medium"){
-      minSize = 10;
-      maxSize = 21;
-    }else{
-      minSize = -1;
-      maxSize = -1;
-    }
-    this.setState({
-      minRooms: minSize,
-      maxRooms: maxSize
-    }, ()=>{
-      console.log(this.state.minRooms, this.state.maxRooms)
-    });
-  };
-  handleLocationChange = e => {
-    console.log(e);
-    this.setState({
-      country: e
-    });
-  };
+  }
 
   render() {
-    console.log("dates",this.state.fromDate,this.state.toDate);
+    console.log("dates",this.state.fromDate,this.state.toDate, this.state.size);
     const listToRender = this.state.hotelsList.filter(element => (this.state.price==="" || element.price===this.state.price.length) &&
     (this.state.country==="" || element.country===this.state.country) &&
-    (this.state.minRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)) &&
+    (this.state.maxRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)) &&
     (this.state.fromDate === "" || element.availabilityFrom < this.state.fromDate) &&
     (this.state.toDate ==="" || element.availabilityTo > this.state.toDate));
     //console.log("to render",listToRender);
@@ -82,8 +36,9 @@ class App extends React.Component {
     console.log("list",listToRender.length);
     return (
         <div className="App">
-          <Header since={this.state.fromDate} to={this.state.toDate}/>
+          <Header since={this.state.fromDate} to={this.state.toDate} country={this.state.country} size={this.state.size} price={this.state.price}/>
           <FilterBar 
+            handleStateChange={this,this.handleStateChange}
             handleFromDate={this.handleFromDateChange} 
             handleToDate={this.handleToDateChange}
             handlePrice={this.handlePriceChange}

@@ -4,15 +4,16 @@ class ListFilter extends React.Component {
     }
 
     handleChange = e => {
+      
         this.setState({ selected: e.target.value},
             ()=>{
-                this.props.onChangeSelected(this.state.selected);
+                this.props.onChangeSelected(this.props.stateName,( String(this.state.selected).includes("Cualquier"))?"":this.state.selected);
             });
         
     };
     
     render() {
-        const {title, onChangeSelected, options} = this.props;
+        const {title, onChangeSelected, options, stateName} = this.props;
       
       return (
           <div className="filter">

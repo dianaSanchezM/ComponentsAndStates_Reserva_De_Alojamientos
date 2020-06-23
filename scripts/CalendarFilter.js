@@ -5,15 +5,23 @@ class CalendarFilter extends React.Component {
     selected:""
   }
 
+  parseDate = (date) => {
+    var s = String(date).replace(/-/ig, '/');
+    var result= String(new Date(s).valueOf());
+    console.log("parsed",result);
+    return result;
+  }
+
   handleChange = e => {
-      this.setState({ selected: e.target.value},
+    const date = e.target.value;
+      this.setState({ selected: date},
           ()=>{
-              this.props.onChangeSelected(this.state.selected);
+              this.props.onChangeSelected(this.props.stateName, this.parseDate(date));
           });
       
   };
   render() {
-    const {title, onChangeSelected} = this.props;
+    const {title, onChangeSelected, stateName} = this.props;
     return (
       <div className="filter">
         <label>{title}</label>

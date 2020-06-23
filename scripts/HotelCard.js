@@ -3,8 +3,6 @@ class HotelCard extends React.Component {
       const {hotel}= this.props;
       const from = new Date(parseInt(hotel.availabilityFrom));
       const to = new Date(parseInt(hotel.availabilityTo));
-      //console.log("hello",new Date(parseInt(hotel.availabilityFrom)));
-      //const to = new Date(String(hotel.availabilityFrom));
       return (
         <div className="card">
           <img src={hotel.photo}></img>
