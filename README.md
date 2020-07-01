@@ -7,11 +7,14 @@
 
 ## Producto
 
+**https://reservadealojamientos.netlify.app**
+
 ### Descripción del producto.
 La plataforma permite visualizar los hoteles disponibles de acuerdo a los filtros disponibles.
 ![](https://github.com/dianaSanchezM/ComponentsAndStates_Reserva_De_Alojamientos/blob/master/images/showcase.JPG)
 
-#**Enlace a Trello:** https://trello.com/b/bkxE2acJ/reserva-de-alojamientos
-#**Enlace a Github:** https://github.com/dianaSanchezM/ComponentsAndStates_Reserva_De_Alojamientos
+
+**Enlace a Trello:** https://trello.com/b/bkxE2acJ/reserva-de-alojamientos
+**Enlace a Github:** https://github.com/dianaSanchezM/ComponentsAndStates_Reserva_De_Alojamientos
 
 

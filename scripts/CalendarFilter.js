@@ -6,9 +6,7 @@ class CalendarFilter extends React.Component {
   }
 
   parseDate = (date) => {
-    var s = String(date).replace(/-/ig, '/');
-    var result= String(new Date(s).valueOf());
-    return result;
+    return String(new Date(String(date).replace(/-/ig, '/')).valueOf());
   }
 
   handleChange = e => {
@@ -17,7 +15,6 @@ class CalendarFilter extends React.Component {
           ()=>{
               this.props.onChangeSelected(this.props.stateName, this.parseDate(date));
           });
-      
   };
   render() {
     const {title, onChangeSelected, stateName} = this.props;

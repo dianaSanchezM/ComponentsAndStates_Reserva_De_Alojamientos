@@ -21,6 +21,7 @@ class App extends React.Component {
   }
 
   render() {
+    
     const listToRender = this.state.hotelsList.filter(element => (this.state.price==="" || element.price===this.state.price.length) &&
     (this.state.country==="" || element.country===this.state.country) &&
     (this.state.maxRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)) &&
@@ -30,12 +31,7 @@ class App extends React.Component {
         <div className="App">
           <Header since={this.state.fromDate} to={this.state.toDate} country={this.state.country} size={this.state.size} price={this.state.price}/>
           <FilterBar 
-            handleStateChange={this,this.handleStateChange}
-            handleFromDate={this.handleFromDateChange} 
-            handleToDate={this.handleToDateChange}
-            handlePrice={this.handlePriceChange}
-            handleCountry={this.handleLocationChange}
-            handleSize={this.handleSizeChange}/>
+            handleStateChange={this,this.handleStateChange}/>
 
           {(listToRender.length!==0)?<Main items={listToRender}/>: <p className="msg">No hay hoteles disponibles con los filtros seleccionados</p>}
         </div>

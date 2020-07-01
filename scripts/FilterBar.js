@@ -33,7 +33,7 @@ class FilterBar extends React.Component {
     
     }
     render() {
-        const {handleStateChange, handleFromDate, handleToDate, handlePrice, handleSize, handleCountry}= this.props;
+        const {handleStateChange}= this.props;
       return (
         <div className="filterBar">
             <CalendarFilter title="Since" onChangeSelected={handleStateChange} stateName={"fromDate"}/>
