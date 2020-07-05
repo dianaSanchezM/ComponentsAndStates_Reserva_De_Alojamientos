@@ -21,12 +21,26 @@ class App extends React.Component {
   }
 
   render() {
-    
+    const {size} = this.state;
+    let minSize = 0;
+    let maxSize = 0;
+    if (size==="Grandes"){
+      minSize= 20;
+      maxSize = 100;
+    }else if (size==="Pequeños"){
+      maxSize = 11;
+    }else if (size==="Medianos"){
+      minSize = 10;
+      maxSize = 21;
+    }else{
+      minSize = -1;
+      maxSize = -1;
+    }
     const listToRender = this.state.hotelsList.filter(element => (this.state.price==="" || element.price===this.state.price.length) &&
     (this.state.country==="" || element.country===this.state.country) &&
-    (this.state.maxRooms===-1 || (element.rooms> this.state.minRooms && element.rooms < this.state.maxRooms)) &&
-    (this.state.fromDate === "" || element.availabilityFrom < this.state.fromDate) &&
-    (this.state.toDate ==="" || element.availabilityTo > this.state.toDate));
+    (this.state.maxRooms===-1 || (element.rooms> minSize && element.rooms < maxSize)) &&
+    (this.state.fromDate === "" || element.availabilityFrom-86400000 < this.state.fromDate) &&
+    (this.state.toDate ==="" || element.availabilityTo-86400000 > this.state.toDate));
     return (
         <div className="App">
           <Header since={this.state.fromDate} to={this.state.toDate} country={this.state.country} size={this.state.size} price={this.state.price}/>
