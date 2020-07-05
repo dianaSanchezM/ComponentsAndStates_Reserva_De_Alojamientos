@@ -7,8 +7,6 @@ class App extends React.Component {
     country: "",
     price: "",
     size: "",
-    minRooms: -1,
-    maxRooms: -1,
     hotelsList:hotelsData
     };
     this.handleStateChange = this.handleStateChange.bind(this);
